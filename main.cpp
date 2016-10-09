@@ -28,7 +28,6 @@ int main()
 
 
     mmap_buffer.insert(pair<int,int>(0,0));
-    //mmap_copy.insert(pair<int,int>(0,0));
 
     multimap<int,int>::iterator it = mmap.begin();
     multimap<int,int>::iterator it_buffer = mmap_buffer.begin();
@@ -53,7 +52,6 @@ int main()
                     tmp = true;
                 }
             }
-            cout << "Это tmp " << tmp << endl;
             if(tmp == false)
                 mmap_copy.insert(pair<int,int>(it->first, it->second));
         }
