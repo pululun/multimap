@@ -41,7 +41,7 @@ int main()
     }
 
     it = mmap.begin();
-    int tmp = 0;
+    bool tmp = false;
 
     for(;it != mmap.end();it++){
         if(it->first == it_buffer->first && it->second == it_buffer->second){
@@ -50,13 +50,14 @@ int main()
             mmap_buffer.insert(pair<int,int>(it->first, it->second));
             for(it_copy = mmap_copy.begin();it_copy != mmap_copy.end();it_copy++){
                 if(it->first == it_copy->first && it->second == it_copy->second){
-                    tmp++;
+                    tmp = true;
                 }
             }
-            if(tmp == 0)
+            cout << "Это tmp " << tmp << endl;
+            if(tmp == false)
                 mmap_copy.insert(pair<int,int>(it->first, it->second));
         }
-        tmp = 0;
+        tmp = false;
     }
 
     it_copy = mmap_copy.begin();
